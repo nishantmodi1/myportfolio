@@ -1,0 +1,18 @@
+$gutter: 1.5rem;
+
+$mixwidth: 120rem;
+
+$padding-y: 8rem;
+//xlg: 1200 above
+//lg: 1200px - 993px
+//lg: 992px - 769px
+//lg: 768px - 481px
+//lg: 480px - 0px
+
+$breakPoints: (
+    "xlg": 1200px,
+    "lg":1200px,
+    "md": 992px,
+    "sm": 768px,
+    "xsm": 480px
+);

@@ -1,0 +1,19 @@
+// 1rem(root element)= 16px
+html {
+    font-size: 10px; //if 10px than 62.5%
+    //by default 16px
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+// p{
+// font-size: 1.5rem;
+// }
+// h1{
+// font-size: 35px;
+// }

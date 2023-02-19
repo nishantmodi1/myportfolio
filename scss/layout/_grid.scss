@@ -1,0 +1,115 @@
+// @use "sass:math";
+@use "../abstract" as *;
+
+.container {
+    width: 100%;
+    max-width: $mixwidth;
+    padding-left: $gutter;
+    padding-right: $gutter;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include responsive(sm) {
+        padding-left: $gutter + 1rem; //1.5+1rem
+        padding-right: $gutter + 1rem;
+
+    }
+}
+
+// @media (min-width: 1200px){
+//     body {
+//         background: green;
+//     }
+// }
+// @media (max-width: 1200px){//this media query run beetween 1200 -993
+//     body {
+//         background: orange;
+//     }
+// }
+// @media (max-width: 992px){//this media query run beetween 0 and 992
+//     body {
+//         background: indigo;
+//     }
+// }
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@each $key,
+$value in $breakPoints {
+    @if $key ==xlg {
+        @media (min-width: $value) {
+            @include columns($key);
+            // @for $i from 1 through 12 {
+            //     .col-#{$key}-#{$i} {
+            //         flex-basis: math.div(100%, 12) * $i;
+            //         max-width: math.div(100%, 12) * $i;
+            //     }
+            // }
+        }
+    }
+
+    @else {
+        @media (max-width: $value) {
+            @include columns($key);
+            // @for $i from 1 through 12 {
+            //     .col-#{$key}-#{$i} {
+            //         flex-basis: math.div(100%, 12) * $i;
+            //         max-width: math.div(100%, 12) * $i;
+            //     }
+            // }
+        }
+    }
+}
+
+//xlg :1200px about 
+// @media (min-width: 1200px){
+// @for $i from 1 through 12 {
+// .col-xlg-#{$i} {
+// flex-basis: math.div(100%, 12) * $i;
+// max-width: math.div(100%, 12) * $i;
+// }
+// }
+// }
+
+//lg:--  1200 - 993px
+// @media (max-width: 1200px){
+// @for $i from 1 through 12 {
+// .col-lg-#{$i} {
+// flex-basis: math.div(100%, 12) * $i;
+// max-width: math.div(100%, 12) * $i;
+// }
+// }
+// }
+
+//md: 992px - 769px
+// @media (max-width: 992px){
+// @for $i from 1 through 12 {
+// .col-md-#{$i} {
+// flex-basis: math.div(100%, 12) * $i;
+// max-width: math.div(100%, 12) * $i;
+// }
+// }
+// }
+// 
+// sm: 768px - 481px
+// @media (max-width: 768px){
+// @for $i from 1 through 12 {
+// .col-sm-#{$i} {
+// flex-basis: math.div(100%, 12) * $i;
+// max-width: math.div(100%, 12) * $i;
+// }
+// }
+// }
+// 
+// xsm: 480px - 0px
+// @media (max-width: 480px){
+// @for $i from 1 through 12 {
+// .col-xsm-#{$i} {
+// flex-basis: math.div(100%, 12) * $i;
+// max-width: math.div(100%, 12) * $i;
+// }
+// }
+// }
