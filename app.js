@@ -43,3 +43,40 @@ modelClose.addEventListener("click", () => {
 
 const year = document.querySelector(".yrs");
 year.innerHTML = new Date().getFullYear();
+
+
+// import React, { useState, useEffect } from 'react';
+
+// const Typewriter = ({ text }) => {
+//   const [displayText, setDisplayText] = useState('');
+//   const [index, setIndex] = useState(0);
+//   const [underscorePosition, setUnderscorePosition] = useState(0);
+
+//   useEffect(() => {
+//     const timer = setTimeout(() => {
+//       if (index < text.length) {
+//         setDisplayText(prevText => prevText + text.charAt(index));
+//         setIndex(prevIndex => prevIndex + 1);
+//         setUnderscorePosition(prevPos => prevPos + 0); // Move underscore by 10px
+//       }
+//     }, 300);
+
+//     return () => clearTimeout(timer);
+//   }, [index, text]);
+
+// //   const underscore = ''
+
+//   return (
+//     <div style={{marginLeft: "350px"}}>
+//       {displayText}
+//       {/* <span style={{ fontSize: '10px', marginLeft: `${underscorePosition}px` }}>_</span> */}
+//       <span style={{ fontSize: '16px', fontWeight: 'bold', letterSpacing: '2px', marginLeft: `${underscorePosition}px` }}>_</span>
+
+//     </div>
+//   );
+// };
+
+// // Example usage:
+// export const Spinner = () => {
+//   return <Typewriter text="response..." />;
+// };
