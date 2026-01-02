@@ -1,3 +1,64 @@
+
+// (function (){
+  // emailjs.init('G_uWZ1wjjvMGKArdY')
+// })()
+
+const form = document.getElementById("contact-form")
+const button = form.querySelector("input[type='submit']");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault()
+  button.disabled = true;
+  button.value="Sending..."
+
+  const formdata=new FormData(form)
+  const data={
+    from_name: formdata.get('from_name'),
+    from_email: formdata.get('from_email'),
+    subject: formdata.get('subject'),
+    message: formdata.get('message'),
+  };
+
+  try {
+    const response=await fetch('https://portfolio-backend-fnyq.onrender.com/send-mail', {
+      method:'POST',
+      headers:{
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+    const result=await response.json();
+    if(result.success){
+      alert('message sent successfully!')
+      form.reset()
+    }else{
+      alert('failed to send message')
+    }
+  } catch (error) {
+    alert('Server error, Try again later.')
+    console.error(error)
+  }finally{
+    button.disabled=false
+    button.value='Send Email'
+  }
+
+  // using emailjs
+  // emailjs
+  //   .sendForm("service_o3jma8r", "template_fm59k22", this)
+  //   .then(()=> {
+  //     alert("Message sent successfully!");
+  //     form.reset();
+  //        button.disabled=false;
+  //        button.value='Send Email'
+  //   }, (error) => {
+  //     alert("failed to send message. Try again.")
+  //     console.error(error)
+  //     button.disabled=false
+  //     button.value='Send Email'
+  //   }
+  // )
+})
+
 const toggle = document.querySelector(".nav__wrapper__toggle");
 const ul = document.querySelector(".nav__wrapper__ul");
 // console.log(toggle);

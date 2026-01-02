@@ -3,3 +3,7 @@ opacity
 sass
 position:
 &::after
+
+# To run file:
+# - npm installl
+# - npm run compile-sass
